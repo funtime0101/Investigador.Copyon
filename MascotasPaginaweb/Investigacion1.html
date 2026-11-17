@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mascotas</title>
+
+    <link rel="stylesheet" href="css/estilo.css">
+    
+    <style>
+
+        /* CONFIGURACIÓN GENERAL */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px;
+
+        }
+
+        .pagina {
+            width: 100%;
+            max-width: 1000px;
+
+            margin: auto;
+        }
+
+
+        /* 1. LOGO */
+
+        .logo {
+            width: 130px;
+            height: 100px;
+
+            margin: 0 auto 20px auto;
+
+            border: 2px dashed #555;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #555;
+            font-weight: bold;
+        }
+
+
+        /* 2. TÍTULO "MASCOTAS" */
+
+        .titulo {
+            text-align: center;
+
+            margin-bottom: 60px;
+        }
+
+        .titulo h1 {
+            margin: 0;
+
+            font-size: 48px;
+
+            letter-spacing: 3px;
+        }
+
+
+        /* TÍTULOS DE LAS SECCIONES */
+
+        .seccion {
+            width: 100%;
+
+            margin-bottom: 80px;
+        }
+
+        .seccion h2 {
+            text-align: center;
+
+            font-size: 30px;
+
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+
+        /* CUADRO A = TEXTO*/
+
+        .texto {
+            min-height: 150px;
+
+            padding: 20px;
+
+            margin-bottom: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+
+        /* CUADRO B = IMAGEN */
+
+        .imagen {
+            width: 100%;
+            min-width: 0;
+            min-height: 150px;
+            box-sizing: border-box;
+            overflow: visible;
+            position: relative;
+        }
+
+        /* Regla para que ocupe el recuadro dado */
+
+        .imagen img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: 180px;
+            object-fit: contain;
+        }
+
+
+        /* ==================================
+           A + B
+        ================================== */
+
+        .fila {
+            display: grid;
+
+            grid-template-columns: 2fr 1fr;
+
+            gap: 20px;
+
+            align-items: start;
+
+            margin-bottom: 25px;
+        }
+
+
+        /* B + A*/
+
+        .fila.invertida {
+            grid-template-columns: 1fr 2fr;
+        }
+
+
+        /*  4. HISTORIAS CONMOVEDORAS */
+
+        .historias-conmovedoras {
+            margin-top: 20px;
+        }
+
+
+        /* 5. CONSEJOS DE CUIDADO */
+
+        .consejos .texto {
+            min-height: 100px;
+        }
+
+
+        /* 6. PÁGINAS RECOMENDADAS*/
+
+        .paginas-recomendadas .texto {
+            min-height: 130px;
+        }
+
+
+        /* TRES IMÁGENES*/
+
+        .imagenes-tres {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+        }
+
+        .imagenes-tres .imagen {
+            min-height: 100px;
+        }
+
+
+        /* DOS IMÁGENES*/
+
+        .imagenes-dos {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+
+            margin-top: 20px;
+        }
+
+        .imagenes-dos .imagen {
+            min-height: 100px;
+        }
+
+
+        /*VISTA PARA CELULAR*/
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 20px;
+            }
+
+            .titulo h1 {
+                font-size: 38px;
+            }
+
+            .fila,
+            .fila.invertida {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .imagenes-tres,
+            .imagenes-dos {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .seccion {
+                margin-bottom: 56px;
+            }
+
+        }
+
+        @media (max-width: 460px) {
+            .imagenes-tres,
+            .imagenes-dos {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .titulo h1 {
+                font-size: 32px;
+                letter-spacing: 2px;
+            }
+
+            .seccion h2 {
+                font-size: 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="pagina">
+
+
+    <!--1. LOGO-->
+
+    <div class="imagen logo-imagen">
+        <img src="imagenes/LogoCopyon.png" alt="Logo">
+    </div>
+
+
+
+    <!-- 2. TÍTULO-->
+
+    <div class="titulo">
+
+        <h1>Mascotas</h1>
+
+    </div>
+
+
+
+    <!--3. HISTORIA DE MASCOTAS-->
+
+    <section class="seccion">
+
+        <h2>Historia de mascotas</h2>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            Las mascotas actualmente son algo muy común, compañeros de vida para muchos, ayudantes para otros y un miembro mas de la familia para todos. Sin duda alguna las mascotas han ocupado muchos puestos en la vida del ser humano, sin embargo, ¿A sido siempre así?
+        </div>
+
+
+        <!-- A + B -->
+
+        <div class="fila">
+
+            <div class="texto">
+                Remontándonos a épocas prehistóricas, el primero en aparecer es el actualmente conocido como “el mejor amigo del hombre”, el perro.  Su vínculo comenzó hace entre 15000 y 33500 años, cuando los lobos grises se comenzaron a acercar a los campamentos humanos buscando comida. Los humanos escogieron a los lobos mas sumisos para que les ayudaran en la caza, la vigilancia y la protección.
+            </div>
+
+            <div class="imagen">
+                <img src="imagenes/loboprehistoria.jpg" alt="Lobo gris en la prehistoria">
+            </div>
+
+        </div>
+
+
+        <!-- B + A -->
+
+        <div class="fila invertida">
+
+            <div class="imagen">
+                <img src="imagenes/gatomesopotamia.jpg" alt="Gato en la antigua Mesopotamia">
+            </div>
+
+            <div class="texto">
+                El siguiente en entrar fue el gato. Su domesticación ocurrió hace entre 9000 y 10000 años en el Creciente Fértil y Mesopotamia. Los gatos se acercaron a los sitios agrícolas por la cantidad de roedores que había en esas zonas.
+            </div>
+
+        </div>
+
+
+        <!-- A + B -->
+
+        <div class="fila">
+
+            <div class="texto">
+                Mas adelante, los gatos tomaron un rol mucho mas importante en el antiguo Egipto, siendo adorados y encargados de proteger los hogares de serpientes y roedores. Con frecuencia eran momificados después de morir. Otros animales, como perros, monos e incluso leones, acompañaban a los faraones.
+            </div>
+
+            <div class="imagen">
+                <img src="imagenes/gatoegipcio.jpg" alt="Gato del antiguo Egipto">
+            </div>
+
+        </div>
+
+
+        <!-- B + A -->
+
+        <div class="fila invertida">
+
+            <div class="imagen">
+                <img src="imagenes/nobleza.jpg" alt="Animales asociados con la nobleza medieval">
+            </div>
+
+            <div class="texto">
+                En la edad media, los perros de raza y los halcones representaban un alto estatus entre la nobleza y se utilizaban para la caza. En otras culturas, los caballos, camellos y elefantes fueron indispensables para el transporte y las guerras.
+            </div>
+
+        </div>
+
+
+        <!-- A + B -->
+
+        <div class="fila">
+
+            <div class="texto">
+                En Europa, la visión respecto a los animales cambio bastante. Dejaron de ser vistos como solo herramientas de trabajo o control de plagas y pasaron a verse como símbolos de afecto y compañía. En 1873 se fundo el Kennel Club en el Reino Unido, impulsando la crianza y el registro de razas caninas.
+            </div>
+
+            <div class="imagen">
+                <img src="imagenes/kennelclub.jpg" alt="Kennel Club del Reino Unido">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 4. HISTORIA CONMOVEDORA -->
+
+    <section class="seccion historias-conmovedoras">
+
+        <h2>Historia conmovedora de mascotas</h2>
+
+
+        <!-- A + B -->
+
+        <div class="fila">
+
+            <div class="texto">
+                1. Hachikō: fue un perro de la raza Akita Inu que vivió en Japón en la década de 1920. Acompañaba cada día a su dueño (El profesor Hidesaburo Ueno) a la estación de tren de Shibuya y volvía cada tarde a esperarlo. En 1925, el profesor sufrió un derrame cerebral repentino en el trabajo y murió. Durante casi 10 años, Hachikō volvió cada tarde a la estación con la fe de ver a su dueño, convirtiéndose en un símbolo mundial de fidelidad antes de morir en 1935.
+            </div>
+
+            <div class="imagen">
+                <img src="imagenes/Hachikō.jpg" alt="Hachikō, el perro fiel de Japón">
+            </div>
+
+        </div>
+
+
+        <!-- A + B -->
+
+        <div class="fila">
+
+            <div class="texto">
+                2. Balto: fue un perro lobo siberiano (husky) de Alaska. En el invierno de 1925, un brote de difteria amenazo la lejana localidad de Nome, Alaska. Las medicinas estaban atrapadas muy lejos debido a la tormenta. Organizaron una carrera de relevos con trineos tirados por perros a través de mas de 1000 kilómetros. Baldo lidero el ultimo y mas peligroso tramo de 53 millas a través de la ventisca, guiando al equipo en la oscuridad hasta entregar el suero que salvo cientos de vidas.
+            </div>
+
+            <div class="imagen">
+                <img src="imagenes/Balto.jpg" alt="Balto, perro de trineo de Alaska">
+            </div>
+
+        </div>
+
+
+        <!-- A + B -->
+
+        <div class="fila">
+
+            <div class="texto">
+                3. Greyfriars Bobby: Fue un pequeño perro Skye Terrier de Edimburgo, Escocia. Pertenecía a un vigilante nocturno llamado John Gray. Cuando su dueño murió de tuberculosis en 1858 y fue enterrado en el cementerio Greyfriars, Bobby se quedó a vivir junto a su lápida. Durante 14 años, desafió el frío, la lluvia y el invierno, negándose a apartarse del lugar hasta el último día de su vida.
+            </div>
+
+            <div class="imagen">
+                <img src="imagenes/Greyfriars Bobby.jpg" alt="Greyfriars Bobby">
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- 5. CONSEJOS DE CUIDADO -->
+
+    <section class="seccion consejos">
+
+        <h2>Consejos de cuidado</h2>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            Sin duda las mascotas representan la mejor compañía, demuestran lealtad y algunas agradeciendo (A su manera) hacia los dueños, es por esto que cuidarlas bien es de total importancia. Los cuidados de cada mascota varían mucho dependiendo de su especie y ambiente, aunque algunos consejos generales podrían ser 
+        </div>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            1. Proporciona agua fresca y limpia a diario, junto con un alimento formulado específicamente para su especie, edad y nivel de actividad. Evita darle comida tóxica (como chocolate, cebolla, uvas o restos de comida humana) y previene el sobrepeso.
+        </div>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            2. Lleva a tu mascota al médico veterinario al menos una o dos veces al año para revisiones generales. Mantén al día su calendario de vacunación y desparasitación (interna y externa).
+        </div>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            3. Adapta los baños, el cepillado de dientes y el cuidado del pelaje o las uñas según las características específicas de cada especie. Revisa con frecuencia sus orejas, ojos y piel para detectar anomalías a tiempo.
+        </div>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            4. Asegúrate de que disponga de un espacio limpio, protegido de temperaturas extremas (frío o calor excesivo) y libre de objetos pequeños que pueda tragar o sustancias peligrosas.
+        </div>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            5. Los animales necesitan moverse y entretenerse para evitar el estrés y el aburrimiento. Bríndale paseos, juegos interactivos o espacios adecuados según su naturaleza (como juguetes seguros).
+        </div>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            6. Usa collares con placa de contacto actualizada y considera el uso de microchip para facilitar su rescate en caso de pérdida.
+        </div>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            7. Dedica tiempo diario a interactuar con ella con paciencia, refuerzo positivo y comprensión de su lenguaje corporal.
+        </div>
+
+    </section>
+
+
+
+    <!--  6. PÁGINAS RECOMENDADAS -->
+
+    <section class="seccion paginas-recomendadas">
+
+        <h2>Páginas recomendadas</h2>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            Algunos sitios que te podrían ayudar a investigar un poco mas a fondo sobre como cuidar tu mascota podrían ser “ExpertoAnimal”, “PetMD”, “Blog de Tiendanimal”
+        </div>
+
+
+        <!-- TRES B -->
+
+       <div class="carrusel-recomendaciones" data-carrusel>
+
+    <button class="flecha-recomendacion anterior" type="button">
+        &#10094;
+    </button>
+
+    <div class="diapositiva-recomendacion activa">
+        <a href="https://expertoanimal.elperiodico.com/" target="_blank">
+            <img src="imagenes/ExpertoAnimal.jpg" alt="Logo de ExpertoAnimal">
+        </a>
+    </div>
+
+    <div class="diapositiva-recomendacion">
+        <a href="https://www.petmd.com/" target="_blank">
+            <img src="imagenes/petmd.jpg" alt="Logo de PetMD">
+        </a>
+    </div>
+
+    <div class="diapositiva-recomendacion">
+        <a href="https://www.tiendanimal.es/?srsltid=AYCX9vLbbDJtKEUC2nOLTXdSx4a9aEzNnMJ38wYbpq9fyJD8TCFg7jg-" target="_blank">
+            <img src="imagenes/Tiendanimal.jpg" alt="Logo de Tiendanimal">
+        </a>
+    </div>
+
+    <button class="flecha-recomendacion siguiente" type="button">
+        &#10095;
+    </button>
+
+</div>
+
+
+        <!-- A -->
+
+        <div class="texto">
+            Si estas interesado en adoptar o comprar una mascota, “PetsGuia” es una opción viable para ver el precio aproximado de una mascota de una raza en especifico y evitar una posible estafa. Para la adopción es mas complejo pues las opciones y paginas varían mucho del sitio donde se viva, como lo es por ejemplo “Corazón peludito”, una página web que permite incluso ofrecerse como voluntario, además de contar con su propia tienda virtual llena de opciones variadas.
+        </div>
+
+
+        <!-- DOS B -->
+
+       
+<div class="carrusel-recomendaciones" data-carrusel>
+
+    <button class="flecha-recomendacion anterior" type="button">
+        &#10094;
+    </button>
+
+    <div class="diapositiva-recomendacion activa">
+        <a href="https://petsguia.com/" target="_blank">
+            <img src="imagenes/petsguia.jpg" alt="Logo de PetsGuia">
+        </a>
+    </div>
+
+    <div class="diapositiva-recomendacion">
+        <a href="https://www.corazonpeludito.org/?gad_source=1&gad_campaignid=22764435825&gbraid=0AAAAA91Bdy_qgiJtHMlMI7LIxkNOHMQZI&gclid=CjwKCAjwl4HXBhAjEiwAHlpWhNEgJuHzGZ3YibpvZYbMuGxY5yIfXCeZp6NxPMGpmMD8L3HlBb9-rBoC2yMQAvD_BwE" target="_blank">
+            <img src="imagenes/corazonpeludito.jpg" alt="Logo de Corazón Peludito">
+        </a>
+    </div>
+
+    <button class="flecha-recomendacion siguiente" type="button">
+        &#10095;
+    </button>
+
+</div>
+
+    </section>
+
+
+</div>
+
+
+<script>
+    document.querySelectorAll("[data-carrusel]").forEach((carrusel) => {
+
+        const diapositivas = carrusel.querySelectorAll(".diapositiva-recomendacion");
+        const anterior = carrusel.querySelector(".anterior");
+        const siguiente = carrusel.querySelector(".siguiente");
+
+        let indiceActual = 0;
+        let intervalo;
+
+        function mostrarDiapositiva(indice) {
+
+            diapositivas.forEach((diapositiva) => {
+                diapositiva.classList.remove("activa");
+            });
+
+            indiceActual = (indice + diapositivas.length) % diapositivas.length;
+
+            diapositivas[indiceActual].classList.add("activa");
+        }
+
+        function iniciarCarrusel() {
+            clearInterval(intervalo);
+
+            intervalo = setInterval(() => {
+                mostrarDiapositiva(indiceActual + 1);
+            }, 5000);
+        }
+
+        function detenerCarrusel() {
+            clearInterval(intervalo);
+        }
+
+        siguiente.addEventListener("click", () => {
+            detenerCarrusel();
+            mostrarDiapositiva(indiceActual + 1);
+            iniciarCarrusel();
+        });
+
+        anterior.addEventListener("click", () => {
+            detenerCarrusel();
+            mostrarDiapositiva(indiceActual - 1);
+            iniciarCarrusel();
+        });
+
+        carrusel.addEventListener("mouseenter", detenerCarrusel);
+        carrusel.addEventListener("mouseleave", iniciarCarrusel);
+
+        iniciarCarrusel();
+    });
+</script>
+
+</body>
+
+</html>

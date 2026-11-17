@@ -1,0 +1,299 @@
+body {
+    background-image: url("../img/papel viejo.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    text-align: center;
+}
+
+header {
+  background-image: 
+        linear-gradient(rgba(36, 28, 22, 0.45), rgba(36, 28, 22, 0.65)),
+        url("../img/fondo floral.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #F5EBD7;
+    padding: 40px 20px;
+
+    border-bottom: 4px solid #B58A43;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+main {
+    padding: 40px;
+}
+
+button {
+    background-color: #d9a441;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+header img {
+     width: 220px;
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
+
+    filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.5));
+
+    transition: transform 0.3s ease;
+}
+header img:hover {
+    transform: scale(1.04);
+}
+
+.expedientes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.carpeta {
+     position: relative;
+    width: 240px;
+    min-height: 155px;
+
+    background: linear-gradient(
+        145deg,
+        #d8b77a,
+        #bd9250
+    );
+    color: #35251e;
+    text-decoration: none;
+
+    padding: 30px 20px 20px;
+    margin-top: 12px;
+    box-sizing: border-box;
+
+    border: 1px solid #98713d;
+    border-radius: 3px 5px 5px 5px;
+
+    box-shadow:
+        2px 3px 0 #98713d,
+        5px 7px 12px rgba(36, 28, 22, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+/* Pestaña superior de la carpeta */
+.carpeta::before {
+    content: "";
+    position: absolute;
+
+    top: -12px;
+    left: -1px;
+
+    width: 95px;
+    height: 13px;
+
+    background-color: #cba568;
+
+    border: 1px solid #98713d;
+    border-bottom: none;
+    border-radius: 4px 5px 0 0;
+}
+/* Elevación al pasar el cursor */
+.carpeta:hover {
+    transform: translateY(-6px) rotate(-1deg);
+
+    box-shadow:
+        2px 3px 0 #98713d,
+        7px 12px 18px rgba(36, 28, 22, 0.3);
+}
+
+.etiqueta {
+    background-color: #f5f0e6;
+    padding: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.introduccion {
+   position: relative;
+
+    max-width: 800px;
+    margin: 35px auto;
+    padding: 35px 40px;
+
+    background: rgba(245, 235, 215, 0.90);
+
+    border-left: 5px solid #b58a43;
+    border-top: 1px solid rgba(152, 113, 61, 0.35);
+
+    box-shadow:
+        3px 5px 12px rgba(36, 28, 22, 0.15);
+    box-sizing: border-box;
+}
+
+.introduccion h2 {
+     color: #604333;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+
+    margin-top: 28px;
+    margin-bottom: 12px;
+
+    text-align: left;
+    border-bottom: 1px solid rgba(181, 138, 67, 0.45);
+
+    padding-bottom: 8px;
+}
+
+.introduccion p {
+    line-height: 1.8;
+    color: #35251e;
+    text-align: left;
+}
+
+.expedientes {
+    border-top: 2px solid #d9a441;
+    padding-top: 30px;
+    margin-top: 40px;
+}
+
+main > h2 {
+    color: #35251e;
+
+    display: inline-block;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+
+    padding: 0 15px 12px;
+    margin-bottom: 20px;
+
+    border-bottom: 2px solid #b58a43;
+
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.45);
+    }
+/* CARRUSEL DE INVESTIGACIONES */
+
+.expedientes {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 30px 0;
+    border-top: 2px solid #d9a441;
+}
+
+.carrusel {
+    position: relative;
+    width: 520px;
+    max-width: 90%;
+    height: 300px;
+    overflow: hidden;
+    border: 3px solid #b58a43;
+    border-radius: 5px;
+    box-shadow: 0 6px 15px rgba(36, 28, 22, 0.35);
+}
+
+.diapositiva {
+    position: absolute;
+    inset: 0;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease;
+    text-decoration: none;
+}
+
+.diapositiva.activa {
+    opacity: 1;
+    visibility: visible;
+}
+
+.diapositiva img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.contenido-portada {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(36, 28, 22, 0.65);
+    color: #f5ebd7;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.diapositiva:hover .contenido-portada {
+    opacity: 1;
+}
+
+.diapositiva:hover img {
+    transform: scale(1.05);
+}
+
+.contenido-portada span {
+    color: #e5bd70;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.contenido-portada h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+}
+
+/* FLECHAS */
+
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    background: rgba(36, 28, 22, 0.75);
+    color: #f5ebd7;
+    border: 1px solid #b58a43;
+    padding: 12px;
+    cursor: pointer;
+}
+
+.flecha:hover {
+    background: #b58a43;
+}
+
+.anterior {
+    left: 10px;
+}
+
+.siguiente {
+    right: 10px;
+}
+
+/* ADAPTACIÓN A CELULARES */
+
+@media (max-width: 600px) {
+    .carrusel {
+        height: 230px;
+    }
+
+    .contenido-portada {
+        opacity: 1;
+    }
+
+    .contenido-portada h3 {
+        font-size: 22px;
+    }
+}
+

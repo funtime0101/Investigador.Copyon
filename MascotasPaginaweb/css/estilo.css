@@ -1,0 +1,281 @@
+/* ARCHIVO DE INVESTIGACIÓN — ESTILO GENERAL
+   Este archivo controla la apariencia y los efectos. */
+
+:root {
+    --papel: #F2E5C9;
+    --papel-tarjeta: #E4D1AC;
+    --tinta: #30251D;
+    --tinta-titulo: #4A2E20;
+    --borde: #B99A68;
+    --acento: #795438;
+    --movimiento: 0.3s ease;
+    --sombra-suave: 0 5px 14px rgba(48, 37, 29, 0.12);
+    --sombra-elevada: 0 12px 25px rgba(35, 24, 14, 0.20);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--papel);
+    color: var(--tinta);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.65;
+}
+
+h1 {
+    color: var(--tinta-titulo);
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 #D6B77A;
+}
+
+h2, h3 {
+    color: var(--tinta-titulo);
+}
+
+.titulo {
+    position: relative;
+}
+
+.titulo h1 {
+    transition: text-shadow var(--movimiento), letter-spacing var(--movimiento);
+}
+
+.titulo h1:hover {
+    letter-spacing: 4px;
+    text-shadow: 2px 3px 0 #D6B77A;
+}
+
+.seccion {
+    animation: entradaArchivo 0.65s ease-out both;
+}
+
+.seccion h2 {
+    transition: color var(--movimiento), letter-spacing var(--movimiento);
+}
+
+.seccion h2:hover {
+    color: var(--acento);
+    letter-spacing: 0.5px;
+}
+
+/* Las fichas conservan el tono de papel envejecido. */
+.texto {
+    color: var(--tinta);
+    background-color: var(--papel-tarjeta);
+    border: 1px solid var(--borde);
+    border-left: 5px solid var(--acento);
+    border-radius: 4px;
+    box-shadow: var(--sombra-suave);
+    transition:
+        transform var(--movimiento),
+        box-shadow var(--movimiento),
+        background-color var(--movimiento),
+        border-color var(--movimiento);
+}
+
+.texto:hover {
+    transform: translateY(-3px);
+    background-color: #EAD9B9;
+    border-color: #A98758;
+    box-shadow: var(--sombra-elevada);
+}
+
+/* El marco deja que la fotografía sobresalga ligeramente. */
+.imagen {
+    position: relative;
+    overflow: visible;
+    border: 2px solid var(--borde);
+    border-radius: 4px;
+    background-color: var(--papel-tarjeta);
+    box-shadow: var(--sombra-suave);
+    transition: box-shadow var(--movimiento), border-color var(--movimiento);
+}
+
+.imagen:hover {
+    border-color: var(--acento);
+    box-shadow: var(--sombra-elevada);
+}
+
+.imagen img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 2px;
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease,
+        box-shadow 0.35s ease;
+    transform-origin: center;
+}
+
+.imagen img:hover {
+    z-index: 5;
+    transform: scale(1.055) rotate(-0.3deg);
+    filter: contrast(1.05) sepia(0.12);
+    box-shadow: 0 9px 22px rgba(35, 24, 14, 0.25);
+}
+
+/* El logo se mantiene contenido y no se amplía demasiado. */
+.logo-imagen {
+    width: 130px;
+    height: 100px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-imagen img:hover {
+    transform: scale(1.025);
+}
+
+a {
+    color: var(--acento);
+    text-decoration: none;
+    transition: color var(--movimiento);
+}
+
+a:hover {
+    color: var(--tinta-titulo);
+    text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #956B3D;
+    outline-offset: 3px;
+}
+
+@keyframes entradaArchivo {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .texto:hover,
+    .imagen img:hover,
+    .titulo h1:hover {
+        transform: none;
+        letter-spacing: inherit;
+    }
+}
+/* ==============================
+   CARRUSEL DE PÁGINAS RECOMENDADAS
+   ============================== */
+
+.carrusel-recomendaciones {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 220px;
+    margin: 25px auto;
+    overflow: hidden;
+}
+
+.diapositiva-recomendacion {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.5s ease;
+}
+
+.diapositiva-recomendacion.activa {
+    opacity: 1;
+    visibility: visible;
+}
+
+.diapositiva-recomendacion a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.diapositiva-recomendacion img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Flechas */
+
+.flecha-recomendacion {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    z-index: 10;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: rgba(60, 40, 20, 0.8);
+    color: #fff;
+
+    font-size: 24px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flecha-recomendacion:hover {
+    background-color: rgba(120, 80, 30, 0.95);
+}
+
+.flecha-recomendacion.anterior {
+    left: 10px;
+}
+
+.flecha-recomendacion.siguiente {
+    right: 10px;
+}

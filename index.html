@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Investigador Copyon</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+       <header>
+        <img src="img/LogoCopyon.png"
+        alt="Investigador Copyon">
+        <p>Exploracion, investigacion y descubrimiento</p>
+       </header>
+
+      <main>
+        <h2>Archivo de investigacion</h2>
+       <p>
+        Eres libre de explorar los expedientes de investigacion, tal vez halla algun caso que te llame la atencion.
+       </p> 
+
+       <section class="expedientes">
+
+    <div class="carrusel">
+
+        <a href="../MascotasPaginaweb/Investigacion1.html"
+           class="diapositiva activa">
+            <img src="img/Todosunidos.jpg" alt="Investigación sobre mascotas">
+            <div class="contenido-portada">
+                <span>EXPEDIENTE 001</span>
+                <h3>Tras las huellas</h3>
+            </div>
+        </a>
+
+        <a href="investigacion2.html" class="diapositiva">
+            <img src="img/placeholder.jpg" alt="Segunda investigación">
+            <div class="contenido-portada">
+                <span>EXPEDIENTE 002</span>
+                <h3>Segunda investigación</h3>
+            </div>
+        </a>
+
+        <button class="flecha anterior" aria-label="Investigación anterior">
+            &#10094;
+        </button>
+
+        <button class="flecha siguiente" aria-label="Investigación siguiente">
+            &#10095;
+        </button>
+
+    </div>
+</section>
+
+      <section class="introduccion">
+
+      <h2>¿Quienes somos?</h2>
+      <p>
+        Nuestro querido "Investigador Copyon" es un proyecto dedicado a la exploracion y dedicacion constante a recopilar datos sobre temas distintos entre si, tratando de abarcar una gama lo suficientemente alta como para captar la atencion de varios y poder difundir conocimiento de temas que usualmente se podrian considerar "Incultos", aunque logicamente tambien se incluiran investigaciones mas relevantes a nivel social
+      </p> 
+
+      <h2>¿Como surgio el proyecto?</h2>
+      <p>
+        Copyon originalmente era un OC (Original Character) destinado a desempeñar un papel como seleccionable en un videojuego sin desarrollar, sin embargo, entre su personalidad se nota el patron de imitar aquello que le gusta, por lo que se dibujo con varios aspectos, incluyendo el de detective que conocemos hoy en dia. Con el tiempo, notamos que algunos temas de interes tenian muy poco desarrollo o atencion por lo que para aquellos que disfrutaban de estos mismos, tendrian que hacer investigaciones rigurosas y aburridas. Juntando esta problematica con el pintoresco personaje incompleto, Investigador Copyon nacio con el fin de ayudar a esta pequeña poblacion en busqueda de conocimiento.
+      </p>
+
+        <h2>¿Que buscamos?</h2> 
+        <p>
+            Recopilar informacion puede ser tedioso para algunos, pero para nosotros, organizarla y clasificarla resulta tan exquisito como util. Queremos esparcir ese conocimiento, permitir un acceso mas directo a los datos e iluminar el camino de aquellos que disfrutan de la misma manera aprender detalles pequeños que podrian dar paso a conversaciones de lo mas interesantes.
+        </p>
+
+        </section>
+
+      </main>
+       <script>
+    const diapositivas = document.querySelectorAll(".diapositiva");
+    const anterior = document.querySelector(".anterior");
+    const siguiente = document.querySelector(".siguiente");
+    const carrusel = document.querySelector(".carrusel");
+
+    let indiceActual = 0;
+    let intervalo;
+
+    function mostrarDiapositiva(indice) {
+        diapositivas.forEach(diapositiva => {
+            diapositiva.classList.remove("activa");
+        });
+
+        indiceActual = (indice + diapositivas.length) % diapositivas.length;
+
+        diapositivas[indiceActual].classList.add("activa");
+    }
+
+    function iniciarCarrusel() {
+        intervalo = setInterval(() => {
+            mostrarDiapositiva(indiceActual + 1);
+        }, 5000);
+    }
+
+    function detenerCarrusel() {
+        clearInterval(intervalo);
+    }
+
+    siguiente.addEventListener("click", (evento) => {
+        evento.preventDefault();
+        evento.stopPropagation();
+
+        detenerCarrusel();
+        mostrarDiapositiva(indiceActual + 1);
+        iniciarCarrusel();
+    });
+
+    anterior.addEventListener("click", (evento) => {
+        evento.preventDefault();
+        evento.stopPropagation();
+
+        detenerCarrusel();
+        mostrarDiapositiva(indiceActual - 1);
+        iniciarCarrusel();
+    });
+
+    carrusel.addEventListener("mouseenter", detenerCarrusel);
+    carrusel.addEventListener("mouseleave", iniciarCarrusel);
+
+    iniciarCarrusel();
+</script>
+
+    </body>
+</html>
