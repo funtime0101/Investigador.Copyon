@@ -295,5 +295,14 @@ main > h2 {
     .contenido-portada h3 {
         font-size: 22px;
     }
+    @media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
 }
 
